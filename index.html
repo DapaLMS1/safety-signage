@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click and Reveal – Safety Signs in a Dental Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F2F2F2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #532A8C;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .left-panel {
+      width: 40%;
+      background-color: #C3ACE8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      gap: 15px;
+    }
+
+    .left-panel img {
+      width: 80%;
+      max-width: 150px;
+      cursor: pointer;
+      border: 3px solid transparent;
+      border-radius: 10px;
+      transition: border 0.3s;
+    }
+
+    .left-panel img:hover {
+      border: 3px solid #532A8C;
+    }
+
+    .right-panel {
+      width: 60%;
+      padding: 20px;
+      background-color: #EDE9F7;
+      color: #333;
+    }
+
+    .info-box {
+      display: none;
+      background-color: #F2F2F2;
+      padding: 15px;
+      border-left: 5px solid #7ABF49;
+      border-radius: 5px;
+    }
+
+    .info-box.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Click a Sign to Learn More</h1>
+
+  <div class="container">
+    <div class="left-panel">
+      <img src="https://i.imgur.com/qBGRTAs.png" alt="Poisons Sign" onclick="showInfo('poisons')">
+      <img src="https://i.imgur.com/QBX19h9.png" alt="Defibrillator Sign" onclick="showInfo('defib')">
+      <img src="https://i.imgur.com/g6pHQzW.png" alt="Biohazard Sign" onclick="showInfo('bio')">
+      <img src="https://i.imgur.com/b2evepf.png" alt="First Aid Sign" onclick="showInfo('firstaid')">
+      <img src="https://i.imgur.com/mPBC2dc.png" alt="PPE Sign" onclick="showInfo('ppe')">
+    </div>
+
+    <div class="right-panel">
+      <div id="poisons" class="info-box">
+        <h3>Poisons Sign</h3>
+        <p>This sign warns that poisons or toxic chemicals are stored nearby. In a dental clinic, this might include disinfectants, sterilising chemicals or hazardous substances. Always follow safety procedures, read labels carefully, and wear the correct PPE.</p>
+      </div>
+
+      <div id="defib" class="info-box">
+        <h3>Defibrillator Sign</h3>
+        <p>This sign shows where the defibrillator is located. Dental assistants should know where it is and how to access it quickly in an emergency. Regular first aid and CPR training helps ensure you're prepared to respond to a medical emergency.</p>
+      </div>
+
+      <div id="bio" class="info-box">
+        <h3>Biohazard Sign</h3>
+        <p>This sign is used where contaminated waste is stored or processed, such as used sharps, blood-stained items, or PPE. Dental assistants must dispose of biohazard waste correctly to avoid the risk of infection or contamination.</p>
+      </div>
+
+      <div id="firstaid" class="info-box">
+        <h3>First Aid Sign</h3>
+        <p>This symbol shows the location of the first aid kit. In dental practices, kits should be stocked and accessible. Dental assistants must report any missing supplies and know where to find the kit during injuries or emergencies.</p>
+      </div>
+
+      <div id="ppe" class="info-box">
+        <h3>PPE Sign</h3>
+        <p>This sign reminds staff and visitors that personal protective equipment (PPE) is required. In dental settings, PPE may include gloves, masks, gowns, and eye protection. Wearing the correct PPE reduces the risk of exposure to harmful substances.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showInfo(id) {
+      const boxes = document.querySelectorAll('.info-box');
+      boxes.forEach(box => box.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
