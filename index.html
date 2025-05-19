@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Click and Reveal – Safety Signs in a Dental Practice</title>
+  <title>Safety Signage – Click and Reveal</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -16,104 +16,113 @@
       color: #532A8C;
     }
 
-    .container {
-      display: flex;
+    .instruction {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .activity-wrapper {
       max-width: 1000px;
       margin: 0 auto;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      overflow: hidden;
     }
 
-    .left-panel {
-      width: 40%;
-      background-color: #C3ACE8;
+    .sign-row {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      gap: 15px;
+      align-items: flex-start;
+      margin: 15px 0;
+      background-color: #EDE9F7;
+      padding: 15px;
+      border-radius: 12px;
     }
 
-    .left-panel img {
-      width: 80%;
-      max-width: 150px;
+    .sign-row img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
       cursor: pointer;
       border: 3px solid transparent;
       border-radius: 10px;
       transition: border 0.3s;
     }
 
-    .left-panel img:hover {
+    .sign-row img:hover {
       border: 3px solid #532A8C;
     }
 
-    .right-panel {
-      width: 60%;
-      padding: 20px;
-      background-color: #EDE9F7;
-      color: #333;
-    }
-
-    .info-box {
+    .info-text {
+      margin-left: 20px;
       display: none;
       background-color: #F2F2F2;
       padding: 15px;
       border-left: 5px solid #7ABF49;
-      border-radius: 5px;
+      border-radius: 8px;
+      flex: 1;
     }
 
-    .info-box.active {
+    .info-text.active {
       display: block;
     }
   </style>
 </head>
 <body>
 
-  <h1>Click a sign to reveal more information</h1>
+  <div class="activity-wrapper">
+    <h1>Click a sign to reveal more information</h1>
+    <p class="instruction">
+      Different types of signs are used depending on the context. Safety signs can be found throughout the Dental Practice — for example, in the staffroom (techniques for washing hands), on equipment (warning labels), and in case of emergency (first aid kits and defibrillators).<br><br>
+      Click on a safety sign to learn more.
+    </p>
 
-  <div class="container">
-    <div class="left-panel">
-      <img src="https://i.imgur.com/qBGRTAs.png" alt="Poisons Sign" onclick="showInfo('poisons')">
-      <img src="https://i.imgur.com/QBX19h9.png" alt="Defibrillator Sign" onclick="showInfo('defib')">
-      <img src="https://i.imgur.com/g6pHQzW.png" alt="Biohazard Sign" onclick="showInfo('bio')">
-      <img src="https://i.imgur.com/b2evepf.png" alt="First Aid Sign" onclick="showInfo('firstaid')">
-      <img src="https://i.imgur.com/mPBC2dc.png" alt="PPE Sign" onclick="showInfo('ppe')">
+    <!-- Poisons -->
+    <div class="sign-row">
+      <img src="https://i.imgur.com/qBGRTAs.png" alt="Poisons Sign" onclick="showInfo('info1')">
+      <div id="info1" class="info-text">
+        <strong>Poisons Sign</strong>
+        <p>This sign means hazardous or toxic substances are stored here. Dental clinics use cleaning chemicals and disinfectants that require proper handling. Dental assistants must follow correct procedures and use PPE to reduce risk.</p>
+      </div>
     </div>
 
-    <div class="right-panel">
-      <div id="poisons" class="info-box">
-        <h3>Poisons Sign</h3>
-        <p>This sign warns that poisons or toxic chemicals are stored nearby. In a dental clinic, this might include disinfectants, sterilising chemicals or hazardous substances. Always follow safety procedures, read labels carefully, and wear the correct PPE.</p>
+    <!-- Defibrillator -->
+    <div class="sign-row">
+      <img src="https://i.imgur.com/QBX19h9.png" alt="Defibrillator Sign" onclick="showInfo('info2')">
+      <div id="info2" class="info-text">
+        <strong>Defibrillator Sign</strong>
+        <p>This sign shows where to find a defibrillator. Dental staff must know where it is and how to use it in a medical emergency, such as a patient experiencing a heart attack.</p>
       </div>
+    </div>
 
-      <div id="defib" class="info-box">
-        <h3>Defibrillator Sign</h3>
-        <p>This sign shows where the defibrillator is located. Dental assistants should know where it is and how to access it quickly in an emergency. Regular first aid and CPR training helps ensure you're prepared to respond to a medical emergency.</p>
+    <!-- Biohazard -->
+    <div class="sign-row">
+      <img src="https://i.imgur.com/g6pHQzW.png" alt="Biohazard Sign" onclick="showInfo('info3')">
+      <div id="info3" class="info-text">
+        <strong>Biohazard Sign</strong>
+        <p>This indicates infectious or contaminated waste, such as blood-soiled materials, sharps, or PPE. It must be disposed of safely using the correct clinical waste process.</p>
       </div>
+    </div>
 
-      <div id="bio" class="info-box">
-        <h3>Biohazard Sign</h3>
-        <p>This sign is used where contaminated waste is stored or processed, such as used sharps, blood-stained items, or PPE. Dental assistants must dispose of biohazard waste correctly to avoid the risk of infection or contamination.</p>
+    <!-- First Aid -->
+    <div class="sign-row">
+      <img src="https://i.imgur.com/b2evepf.png" alt="First Aid Sign" onclick="showInfo('info4')">
+      <div id="info4" class="info-text">
+        <strong>First Aid Sign</strong>
+        <p>This sign shows where the first aid kit is located. As a dental assistant, it's important to regularly check the kit and restock it when needed. Quick access is essential during incidents.</p>
       </div>
+    </div>
 
-      <div id="firstaid" class="info-box">
-        <h3>First Aid Sign</h3>
-        <p>This symbol shows the location of the first aid kit. In dental practices, kits should be stocked and accessible. Dental assistants must report any missing supplies and know where to find the kit during injuries or emergencies.</p>
-      </div>
-
-      <div id="ppe" class="info-box">
-        <h3>PPE Sign</h3>
-        <p>This sign reminds staff and visitors that personal protective equipment (PPE) is required. In dental settings, PPE may include gloves, masks, gowns, and eye protection. Wearing the correct PPE reduces the risk of exposure to harmful substances.</p>
+    <!-- PPE -->
+    <div class="sign-row">
+      <img src="https://i.imgur.com/mPBC2dc.png" alt="PPE Sign" onclick="showInfo('info5')">
+      <div id="info5" class="info-text">
+        <strong>PPE Sign</strong>
+        <p>This sign reminds workers and visitors to wear personal protective equipment. In dental settings, this includes gloves, masks, gowns, and safety glasses. PPE helps prevent exposure to infections and harmful substances.</p>
       </div>
     </div>
   </div>
 
   <script>
     function showInfo(id) {
-      const boxes = document.querySelectorAll('.info-box');
-      boxes.forEach(box => box.classList.remove('active'));
+      const allInfoBoxes = document.querySelectorAll('.info-text');
+      allInfoBoxes.forEach(box => box.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
   </script>
